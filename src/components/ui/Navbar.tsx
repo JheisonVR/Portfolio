@@ -1,14 +1,14 @@
 "use client"
 import React, { useState } from 'react'
-import { AppBar, Avatar, Box, Button, Container, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu';
-import IconButton from '@mui/material/IconButton';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-import AdbIcon from '@mui/icons-material/Adb';
+
 import Link from 'next/link';
 
-const pages = ['Experience', 'Work Experience', 'Skills & Proficiencies'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { AppBar, Avatar, Box, Button, Container, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material'
+import IconButton from '@mui/material/IconButton';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+
+const pages = [ {name:'Educational Background',URL:'e_background'}, {name:'Work Experience', URL:'work_experience'}, {name:'Skills & Proficiencies',URL:'skills'}];
+const settings = ['Curriculum Vitae', 'Contact Info', 'About'];
 
 function Navbar() {
 
@@ -32,14 +32,30 @@ function Navbar() {
 
 
     return (
-        <AppBar position='sticky'>
+        <AppBar position='sticky' color='secondary'>
             <Container maxWidth='xl'>
-                <Toolbar disableGutters>                                        
+                <Toolbar 
+                    variant='dense' 
+                    sx={{
+                        
+                        
+                        
+                    }}
+                >
+                    <IconButton
+                        size='small'
+                        aria-label='account of current user'
+                        aria-controls='menu-appbar'
+                        aria-haspopup='true'
+                        onClick={handleOpenNavMenu}
+                        color='inherit'
+                    >
+                        <ElectricBoltIcon/>
+                    </IconButton>
+                    
                     <Typography
                         variant='h6'
-                        noWrap
-                        component='a'
-                        href='/'
+                        noWrap                        
                         sx={{
                             mr:2,
                             display: {xs:'none', md:'flex'},
@@ -49,20 +65,11 @@ function Navbar() {
                             color: 'inherit',
                             textDecoration:'none'
                         }}
-                    >                        
-                    Jheison                    
-                    </Typography> 
+                    >
+                    <Link href='/'>Jheison</Link>                    
+                    </Typography>
+
                     <Box>
-                        <IconButton
-                            size='large'
-                            aria-label='account of current user'
-                            aria-controls='menu-appbar'
-                            aria-haspopup='true'
-                            onClick={handleOpenNavMenu}
-                            color='inherit'
-                        >
-                            <ElectricBoltIcon/>
-                        </IconButton>
                         <Menu
                             id='menu-appbar'
                             anchorEl={anchorElNav}
@@ -73,24 +80,23 @@ function Navbar() {
                             keepMounted
                             transformOrigin={{
                                 vertical:'top',
-                                horizontal:'left'
+                                horizontal:'center'
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display:{xs:'block', md:'none'}
+                                display:{xs:'block', md:'none'},
+                                
                             }}
                         >
-                            {pages.map((page)=>(
-                                <MenuItem key={page} onClick={handleCloseNavMenu} >
-                                    <Typography textAlign={'center'} >{page}</Typography>
+                            {pages.map((page,i)=>(
+                                <MenuItem key={i} onClick={handleCloseNavMenu} >
+                                    <Link href={`/${page.URL}`}>{page.name}</Link>
                                 </MenuItem>
                             ))}
                         </Menu>
-                        </Box>
+                    </Box>
 
-
-                    <AdbIcon sx={{display:{xs:'flex', md:'none', mr:1}}} />
                     <Typography
                         variant='h5'
                         noWrap
@@ -107,19 +113,21 @@ function Navbar() {
                             textDecoration:'none'
                         }}
                     >
-                    Holiiiii                        
-                    </Typography>                                                        
-                    <Box sx={{flexGrow:1, display:{xs:'none', md:'flex'}}} >
-                        {pages.map((page)=> (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{my:2, color:'white', display:'block'}}
-                            >
-                                {page}
-                            </Button>
+                    <Link href='/' >Jhei</Link>
+                    </Typography>
+
+                    <Box sx={{flexGrow:1, display:{xs:'none', md:'flex'}, justifyContent:'space-around'}} >
+                        {pages.map((page,i)=> (
+                            <Typography key={i}>
+                                <Link                                    
+                                    href={`/${page.URL}`}
+                                >
+                                    {page.name}
+                                </Link>
+                            </Typography>
                         ))}
                     </Box>
+
                     <Box>
                         <Tooltip title='Open Settings' >
                             <IconButton onClick={handleOpenUserMenu} sx={{p:0}}>
