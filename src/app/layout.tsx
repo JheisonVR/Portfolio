@@ -1,8 +1,11 @@
+"use client"
+// import { FC } from 'react'
 import { Metadata } from 'next'
+// import Head from 'next/head'
 import './globals.css'
 import { Inter } from 'next/font/google'
+// import { Box } from '@mui/material'
 import Navbar from '@/components/ui/Navbar'
-import { Box } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,15 +19,38 @@ export const metadata: Metadata = {
 
 }
 
+
+// interface Props{
+//   title?: string,
+//   children: React.ReactNode
+// }
+
+
+
+// export const Rootlayout:FC<Props> = ( {title='Portfolio', children} ) => {
+//   return(
+//     <Box>
+//       <Head>
+//         <title>{title}</title>
+//       </Head>
+//       <Navbar/>
+
+//       <Box sx={{flexGrow:1}} >
+//         {children}
+//       </Box>
+//     </Box>
+//   )
+// }
+
+// export default Rootlayout
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-
-      
+    <html lang="en">    
       <body className={inter.className}>
         <Navbar/> 
         {children}
