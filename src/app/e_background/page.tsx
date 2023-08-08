@@ -1,15 +1,16 @@
 "use client" 
 import React from 'react'
-import { Box, Container } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
+import { EbTimeLine } from './components';
+
 
 const Educational_Background = () => {
     return (
-        <Container>
+        <Grid>
             <Box>
-                Holiiii Education
+                <EbTimeLine/>
             </Box>
-        
-        </Container>
+        </Grid>
     )
 }
 
