@@ -52,6 +52,8 @@ export default function AlertDialogSlide() {
             >
             {/* <DialogTitle>{"Description"}</DialogTitle> */}
             {/* <DialogContent> */}
+
+
                 <Card
                 >
                     <CardHeader
@@ -66,6 +68,9 @@ export default function AlertDialogSlide() {
                         </Typography>
                     </CardContent>
                 </Card>
+
+
+                
                 {/* <DialogContentText id="alert-dialog-slide-description">
                 Entrenamiento intensivo en programación, enfocado en desarrollar habilidades y competencias aplicadas a Frontend y Backend, por medio de la aplicación de lenguajes y tecnologias de vanguardia.
                 Construcción de proyectos web individuales y grupales por medio del uso de metodologias y herramientas agiles, propiciando el aprendizaje colaborativo, así como el entorno laboral del sector.

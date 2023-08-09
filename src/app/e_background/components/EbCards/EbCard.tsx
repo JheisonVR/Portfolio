@@ -1,11 +1,20 @@
 import { Card, CardContent } from "@mui/material"
 
-export const EbCard = () => {
+interface Props {
+    institution:string
+    duration:string
+    grade:string
+    description:string
+    image:string
+}
+
+
+export const EbCard = ( {institution}:Props ) => {
     return (
         <Card>
             <CardContent>
-                Holii
+                {institution}
             </CardContent>
         </Card>
     )
-    }
+}
