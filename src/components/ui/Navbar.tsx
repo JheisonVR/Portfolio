@@ -32,8 +32,13 @@ export function Navbar() {
 
 
     return (
-        <AppBar position='sticky' color='secondary'>
-            <Container maxWidth='xl'>
+        <AppBar 
+            sx={{
+                backgroundColor:'#046865'
+            }}
+            position='sticky'  >
+            <Container 
+                maxWidth='xl'>
                 <Toolbar 
                     variant='dense' 
                     sx={{

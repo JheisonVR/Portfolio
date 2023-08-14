@@ -1,24 +1,166 @@
-import { Dialog, DialogTitle, Badge, Box, Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Collapse, Container, Grid, Typography } from "@mui/material"
-import CircleIcon from '@mui/icons-material/Circle';
+import React from "react";
+import { Dialog, DialogTitle, Badge, Box, Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Collapse, Container, Grid, Typography, Avatar } from "@mui/material"
+//import CircleIcon from '@mui/icons-material/Circle';
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab";
-import { useState } from "react";
-import CardDialog from "./EbCards/CardDialog";
+import { EBackground } from "../../../../interfaces";
+import SchoolIcon from '@mui/icons-material/School';
 
 
-export const EbTimeLine = () => {
+
+
+
+
+
+export const EbTimeLine =  ( {info}:{info:EBackground[] } ) => {
+    
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
 
     return (
         <Container>
             <Timeline
                 position="alternate"
             >
-                <TimelineItem>
+                {
+                    info.map((inf,j) => (
+                        <TimelineItem
+                            key={j}
+                        >
+                        <TimelineOppositeContent
+                            alignContent='end'
+                        >
+                            <Typography
+                                variant="h5"
+                                color='#22577a'
+                            >{inf.fecha} </Typography>
+                            
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot
+                                sx={{
+                                    backgroundColor:'#184e77'
+                                }}
+                                variant="filled"
+                                
+                                
+                            >
+                                <SchoolIcon
+                                    
+                                />
+                            </TimelineDot>
+                            <TimelineConnector/>
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Card
+                                sx={{
+                                    backgroundColor:'#edebeb',
+                                    //width:'200',
+                                    display:"flex",
+                                    justifyContent:'space-between',
+                                    boxShadow:'1px 1px #6c757d'
+                                    
+
+                                }}
+                                variant="elevation"
+                                
+                            >
+                                <Box
+                                    sx={{
+                                        display:'flex',
+                                        flexDirection:'column',
+                                        width:'80%'
+                                    }}
+                                >
+                                    <CardContent
+                                        sx={{
+                                            flex:'1 0 auto'
+                                        }}
+                                    >
+                                        <Typography
+                                                variant="body1"
+                                                color={'#184e77'}                                    
+                                                align="left"
+                                                
+                                            >   
+                                                {inf.dialog.title}
+                                        </Typography>
+                                    </CardContent>                            
+                                    <Box
+                                        sx={{
+                                            display:"flex",
+                                            alignItems:'center', pl:1, pb:1,
+                                            
+                                        }}
+                                    >
+                                        
+                                        <Typography
+                                            variant="body2"
+                                            color={'#168aad'}
+                                            align="center"
+                                        >
+                                            {inf.institucion}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                                <CardMedia
+                                    sx={{
+                                        width:200,
+                                        objectFit:'contain',
+                                        overflow:'hidden',
+                                        backgroundColor:'white'
+                                    }}
+                                    image={inf.image}                                
+                                />
+                                
+                                {/* <CardActionArea
+                                    onClick={handleClickOpen}
+                                >
+                                </CardActionArea> */}
+                            
+                            {/* <Dialog
+                            open={open}
+                            keepMounted
+                            onClose={handleClose}
+                            aria-describedby="alert-dialog-slide-description"
+                        >
+                            <Card
+                            >
+                                <CardHeader
+                                    title='Description'
+                                >
+                                    
+                                </CardHeader>
+                                <CardContent>
+                                    <Typography>
+                                        {inf.dialog.description}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Dialog> */}
+                        </Card>
+                        </TimelineContent>
+                    </TimelineItem>
+
+                    ))
+
+                }
+
+
+
+                {/* <TimelineItem>
                     <TimelineOppositeContent
                         color="Highlight"
                     >
                         <Typography
                             variant="subtitle2"
-                        >Junio</Typography>
+                        >{} </Typography>
                         
                     </TimelineOppositeContent>
                     <TimelineSeparator>
@@ -31,37 +173,7 @@ export const EbTimeLine = () => {
                     <TimelineContent>
                         <CardDialog/>
                     </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot/>
-                        <TimelineConnector/>
-                    </TimelineSeparator>
-                    <TimelineContent>
-                        HENRY
-                    </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot/>
-                        <TimelineConnector/>
-                    </TimelineSeparator>
-                    <TimelineContent>UNAB</TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot/>
-                        <TimelineConnector/>
-                    </TimelineSeparator>
-                    <TimelineContent>ESAP</TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot/>
-                        <TimelineConnector/>
-                    </TimelineSeparator>
-                    <TimelineContent>ESAP</TimelineContent>
-                </TimelineItem>
+                </TimelineItem> */}
             </Timeline>
         </Container>
 

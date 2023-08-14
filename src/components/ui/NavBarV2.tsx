@@ -11,7 +11,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 export const NavBarV2 = () => {
     return (
         <AppBar
-            color='secondary'
+            color='primary'
             position='sticky'
         >
             <Container 
