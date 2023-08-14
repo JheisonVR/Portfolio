@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 
 import Link from 'next/link';
 
-import { AppBar, Avatar, Box, Button, Container, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material'
+import { AppBar, Avatar, Box, Container, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 
 const pages = [ {name:'Educational Background',URL:'e_background'}, {name:'Work Experience', URL:'work_experience'}, {name:'Skills & Proficiencies',URL:'skills'}];
 const settings = ['Curriculum Vitae', 'Contact Info', 'About'];
 
-function Navbar() {
+export function Navbar() {
 
     const [anchorElNav, setAnchorElNav] =  useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -32,8 +32,13 @@ function Navbar() {
 
 
     return (
-        <AppBar position='sticky' color='secondary'>
-            <Container maxWidth='xl'>
+        <AppBar 
+            sx={{
+                backgroundColor:'#046865'
+            }}
+            position='sticky'  >
+            <Container 
+                maxWidth='xl'>
                 <Toolbar 
                     variant='dense' 
                     sx={{
@@ -169,5 +174,3 @@ function Navbar() {
         </AppBar>
     )
 }
-
-export default Navbar

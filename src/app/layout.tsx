@@ -1,13 +1,9 @@
-"use client"
-// import { FC } from 'react'
-import { Metadata } from 'next'
-// import Head from 'next/head'
-import './globals.css'
-import { Inter } from 'next/font/google'
-// import { Box } from '@mui/material'
-import Navbar from '@/components/ui/Navbar'
+'use client'
 
-const inter = Inter({ subsets: ['latin'] })
+import { Metadata } from 'next'
+import './globals.css'
+import { NavBarV2 } from '@/components/ui'
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -51,8 +47,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">    
-      <body className={inter.className}>
-        <Navbar/> 
+      <body>
+        <NavBarV2/> 
         {children}
       </body>
     </html>

@@ -14,7 +14,7 @@
     #16abff33 0deg,
     #0885ff33 55deg,
     #54d6ff33 120deg,
-    #0071ff33 160deg,
+    #00bfff33 160deg,
     transparent 360deg
   );
   --secondary-glow: radial-gradient(
@@ -40,18 +40,18 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --primary-glow: radial-gradient(rgba(2, 230, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
       to bottom right,
       rgba(1, 65, 255, 0),
       rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
+      rgba(0, 213, 255, 0.3)
     );
 
     --tile-start-rgb: 2, 13, 46;
@@ -100,8 +100,8 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 }
